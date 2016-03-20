@@ -20,8 +20,9 @@ public class BstMultiset<T> extends Multiset<T>
 	} // end of add()
 
 
-	public void removeOne(T item) {
+	public Boolean removeOne(T item) {
 		// Implement me!
+		return true;
 	} // end of removeOne()
 	
 	

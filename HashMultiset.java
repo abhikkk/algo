@@ -43,7 +43,7 @@ public class HashMultiset<T> extends Multiset<T>
 	} // end of add()
 
 
-	public void removeOne(T item) {
+	public Boolean removeOne(T item) {
 		if (mMap.containsKey(item)) {
 			int count = mMap.get(item);
 			if (count == 1) {
@@ -53,6 +53,7 @@ public class HashMultiset<T> extends Multiset<T>
 				mMap.put(item, count-1);
 			}
 		}
+		return true;
 	} // end of removeOne()
 	
 	
