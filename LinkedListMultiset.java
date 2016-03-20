@@ -2,6 +2,9 @@ import java.io.PrintStream;
 import java.util.*;
 
 
+
+
+
 public class LinkedListMultiset<T> extends Multiset<T> {
 	
 	/** Reference to head node. */
@@ -73,13 +76,21 @@ public class LinkedListMultiset<T> extends Multiset<T> {
 //    } // end of add()
 
 	
-	
-	public int search(T item) {
-		// Implement me!		
-		
+	int counter =0;
+	public int search(T searchItem) {
+		Node currNode = mHead;
+        for (int i = 0; i < mLength; ++i) {
+        	if (currNode.getValue() == searchItem) {
+        		counter++;
+        	}
+            currNode = currNode.getNext();
+        }
+
+        return counter;
+        
+    } // end of search()
 		// default return, please override when you implement this method
-		return 0;
-	} // end of add()
+	 // end of add()
 	
 	
 	public Boolean removeOne(T removeValue) {
@@ -133,7 +144,7 @@ public class LinkedListMultiset<T> extends Multiset<T> {
 
 
             while (currNode != null) {
-//            for (int i=0;i<mLength;i++) {
+
                 if (currNode.getValue() == removeValue) {
                     prevNode.setNext(currNode.getNext());
                     mLength--;
@@ -145,7 +156,7 @@ public class LinkedListMultiset<T> extends Multiset<T> {
                     currNode = currNode.getNext();
                 }
                 
-                System.out.print("\n" + currNode.getValue());
+                //System.out.print("\n" + currNode.getValue());
             }	
 	
     	}

@@ -19,11 +19,11 @@ public class Main {
 		FileOutputStream fout = new FileOutputStream(tempFile);
 		PrintStream out = new PrintStream(fout);
 		
-//		myList.print(out);
-		
-		myList.removeAll("Three");
-		
 		myList.print(out);
+		
+		System.out.println(myList.search("Four"));
+		
+		//myList.print(out);
 		
 		
 	}
