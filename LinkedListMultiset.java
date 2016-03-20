@@ -134,40 +134,40 @@ public class LinkedListMultiset<T> extends Multiset<T> {
     	if (mLength != 0) {
     	
             Node currNode = mHead;
+            Node nextNode;
             Node prevNode = null;
 
+        	
             // check if value is head node
             if (currNode.getValue() == removeValue) {
                 mHead = currNode.getNext();
+                currNode = null;
+                currNode = mHead;
                 mLength--;
             }
 
 
             while (currNode != null) {
 
+                
                 if (currNode.getValue() == removeValue) {
-                    prevNode.setNext(currNode.getNext());
                     mLength--;
-                    
-                    currNode = currNode.getNext();
-                    
+//
+                    nextNode = currNode.getNext();
+                    prevNode.setNext(nextNode);
+                    currNode = null;
+                    currNode = nextNode;
                 } else {
                     prevNode = currNode;
                     currNode = currNode.getNext();
                 }
                 
-                //System.out.print("\n" + currNode.getValue());
             }	
 	
     	}
         
 	} // end of removeAll()
-	
-	public Boolean remove() {
 		
-		return true;
-	}
-	
 	
 	public void print(PrintStream out) {
 		String streamValue;
@@ -176,14 +176,18 @@ public class LinkedListMultiset<T> extends Multiset<T> {
 			Node localNode = mHead;
 			
 			while(localNode !=null){
-				streamValue += (String) localNode.getValue();
+				
+				streamValue += localNode.getValue();
 				localNode = localNode.getNext();
 			}
 
 			out.println(streamValue);
+			out.close();
+			
 			// for testing
-			System.out.print("\n" + streamValue);
+			System.out.print("\n " + streamValue);
 			// end for testing
+			
 		}
 	} // end of print()
 	
