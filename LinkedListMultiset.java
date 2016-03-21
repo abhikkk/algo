@@ -17,7 +17,7 @@ public class LinkedListMultiset<T> extends Multiset<T> {
     public LinkedListMultiset() {
         mHead = null; 
         mLength = 0;
-    } // end of SimpleList()
+    } // end of LinkedListMultiset()
 
 	
 
@@ -41,43 +41,9 @@ public class LinkedListMultiset<T> extends Multiset<T> {
 //        System.out.print(newNode.getValue());
         mLength++;
     } // end of add()
-
-
-//    /**
-//     * Add value (and corresponding node) at position 'index'.  Indices start at 0.
-//     * 
-//     * @param index Position in list to add new value to.
-//     * @param newValue Value to add to list.
-//     * 
-//     * @throws IndexOutOfBoundsException In index are out of bounds.
-//     */
-//    public void add(int index, int newValue) throws IndexOutOfBoundsException {
-//        if (index >= mLength || index < 0) {
-//            throw new IndexOutOfBoundsException("Supplied index is invalid.");
-//        }
-//
-//        Node newNode = new Node(newValue); 
-//
-//        if (mHead == null) {			
-//            mHead = newNode;
-//        }
-//        // list is not empty
-//        else {
-//            Node currNode = mHead;
-//            for (int i = 0; i < index-1; ++i) {
-//                currNode = currNode.getNext();
-//            }
-//
-//            newNode.setNext(currNode.getNext());
-//            currNode.setNext(newNode);            
-//        }
-//
-//        mLength += 1;
-//    } // end of add()
-
 	
-	int counter =0;
 	public int search(T searchItem) {
+		int counter = 0;
 		Node currNode = mHead;
         for (int i = 0; i < mLength; ++i) {
         	if (currNode.getValue() == searchItem) {
@@ -169,24 +135,42 @@ public class LinkedListMultiset<T> extends Multiset<T> {
 	} // end of removeAll()
 		
 	
+	@SuppressWarnings("static-access")
 	public void print(PrintStream out) {
 		String streamValue;
 		if(mHead != null) {
 			streamValue = "";
-			Node localNode = mHead;
-			
-			while(localNode !=null){
-				
-				streamValue += localNode.getValue();
-				localNode = localNode.getNext();
-			}
+			Node currNode = mHead;
+			Node localNode;
+			String currentValue;
+			String values = "";
+//			
+			while(currNode != null){
+				currentValue = (currNode.getValue()).toString();
+				localNode = mHead;
+				int counter = 0;
+	        	if(values.contains(currentValue) == false) {
+	        		values += currentValue;
+	        		for (int i = 0; i < mLength; ++i) {
+	        			
+			        	if(currentValue == localNode.getValue()) {
+			        		counter++;
+			        		
+			        	}
+			        	localNode = localNode.getNext();
+		        	}
+	        		streamValue += currentValue + this.printDelim + counter + "\n";
+		        	
+		        }
 
+
+		        currNode = currNode.getNext();
+		        
+			}
+			
 			out.println(streamValue);
 			out.close();
-			
-			// for testing
-			System.out.print("\n " + streamValue);
-			// end for testing
+
 			
 		}
 	} // end of print()
