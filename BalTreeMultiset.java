@@ -43,7 +43,7 @@ public class BalTreeMultiset<T> extends Multiset<T>
 	} // end of add()
 
 
-	public Boolean removeOne(T item) {
+	public void removeOne(T item) {
 		if (mTree.containsKey(item)) {
 			int count = mTree.get(item);
 			if (count == 1) {
@@ -53,7 +53,6 @@ public class BalTreeMultiset<T> extends Multiset<T>
 				mTree.put(item, count-1);
 			}
 		}
-		return true;
 	} // end of removeOne()
 	
 	

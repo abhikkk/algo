@@ -10,29 +10,40 @@ public class Main {
 	private static LinkedListMultiset<String> myList = new LinkedListMultiset<String>();
 		
 	public static void main(String[] args) throws IOException {
-		myList.add("One");
-		myList.add("Two");
-		myList.add("Three");
-		myList.add("Three");
-		myList.add("Four");
-		myList.add("Four");
-
-//		myList.add(1);
-//		myList.add(2);
-//		myList.add(2);
-//		myList.add(3);
 		
 		File file = new File( "myOutput.txt" );
 	    PrintStream  print = new PrintStream( file );
 
-		myList.print(print);
-		
-//		System.out.println(myList.search(2));
-//		System.out.println(myList.search(2));
-//	    myList.removeAll(2);
-		
+//		myList.add("robot");
+//		myList.add("robot");
+//		myList.add("fortune");
+//		myList.add("macbook");
+//		myList.search("robot");
+//		System.out.println(myList.search("robot"));
 //		myList.print(print);
-		
+	    
+	    
+//	    // test 1
+		myList.add("robot");
+		myList.add("fortune");
+		myList.add("macbook");
+		myList.add("robot");
+		myList.search("robot");
+		myList.search("book");
+		myList.add("macbook");
+		myList.add("macbook");
+		myList.add("fortune");
+		myList.removeOne("fortune");
+		myList.print(print);
+	    
+	    // test 2
+//		myList.add("hello");
+//		myList.add("bye");
+//		myList.add("hello");
+//		myList.search("bye");
+//		myList.search("up");
+//		myList.search("hello");
+//		myList.print(print);
 		
 	}
 }

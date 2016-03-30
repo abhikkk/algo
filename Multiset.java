@@ -36,7 +36,7 @@ public abstract class  Multiset<T>
 	 * 
 	 * @param item Element to remove. 
 	 */
-	public abstract Boolean removeOne(T item);
+	public abstract void removeOne(T item);
 	
 	
 	/**
