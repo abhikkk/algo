@@ -8,6 +8,7 @@ import java.io.PrintStream;
 public class Main {
 //	private static LinkedListMultiset<Number> myList = new LinkedListMultiset<Number>();
 	private static LinkedListMultiset<String> myList = new LinkedListMultiset<String>();
+	private static SortedLinkedListMultiset<String> mySortedList = new SortedLinkedListMultiset<String>();
 		
 	public static void main(String[] args) throws IOException {
 		
@@ -24,17 +25,17 @@ public class Main {
 	    
 	    
 //	    // test 1
-		myList.add("robot");
-		myList.add("fortune");
-		myList.add("macbook");
-		myList.add("robot");
-		myList.search("robot");
-		myList.search("book");
-		myList.add("macbook");
-		myList.add("macbook");
-		myList.add("fortune");
-		myList.removeOne("fortune");
-		myList.print(print);
+	    mySortedList.add("celine");
+	    mySortedList.add("celine");
+	    mySortedList.add("dogg");
+	    mySortedList.add("abhi");
+	    mySortedList.add("aa");
+	    mySortedList.add("zz");
+	    mySortedList.add("yy");
+//	    mySortedList.testPrintoutall();
+	    
+	    mySortedList.print(print);
+	    
 	    
 	    // test 2
 //		myList.add("hello");
