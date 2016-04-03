@@ -274,12 +274,13 @@ public class BstMultiset<T> extends Multiset<T>
 		}
 	}
 	
-	
-	
 	public void print(PrintStream out) {
 		this.printString = "";
 		printDisplay(mHead);
 		System.out.println(this.printString);
+
+		out.println(this.printString);
+		out.close();
 	}
 
 
