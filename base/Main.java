@@ -10,19 +10,31 @@ public class Main {
 //	private static LinkedListMultiset<Number> myList = new LinkedListMultiset<Number>();
 	private static LinkedListMultiset<String> myList = new LinkedListMultiset<String>();
 	private static SortedLinkedListMultiset<String> mySortedList = new SortedLinkedListMultiset<String>();
-		
+	private static BstMultiset<String> myBinaryTree = new BstMultiset<String>();
+	
+	
 	public static void main(String[] args) throws IOException {
 		
 		File file = new File( "myOutput.txt" );
 	    PrintStream  print = new PrintStream( file );
 
-		myList.add("robot");
-		myList.add("robot");
-		myList.add("fortune");
-		myList.add("macbook");
-		myList.removeAll("robot");
+	    myBinaryTree.add("c");
+	    myBinaryTree.add("c");
+	    myBinaryTree.add("c");
+	    myBinaryTree.add("a");
+	    myBinaryTree.add("b");
+//	    myBinaryTree.display();
+	    myBinaryTree.removeOne("c");
+	    myBinaryTree.display();
+//	    System.out.println(myBinaryTree.search("c"));
+
+//		myList.add("robot");
+//		myList.add("robot");
+//		myList.add("fortune");
+//		myList.add("macbook");
+//		myList.removeAll("robot");
 //		System.out.println(myList.search("robot"));
-		myList.print(print);
+//		myList.print(print);
 	    
 	    
 //	    // test 1
@@ -35,7 +47,7 @@ public class Main {
 //	    mySortedList.add("yy");
 //	    mySortedList.testPrintoutall();
 	    
-	    mySortedList.print(print);
+//	    mySortedList.print(print);
 	    
 	    
 	    // test 2

@@ -61,16 +61,6 @@ public class SortedLinkedListMultiset<T> extends Multiset<T> {
 		mLength++;
 	} // end of add()
 
-	public void testPrintoutall() {
-		Node<T> currNode = mHead;
-
-		while (currNode != null) {
-
-			System.out.println(currNode.getValue());
-			currNode = currNode.getNext();
-		}
-	}
-
 	public int search(T searchItem) {
 		int counter = 0;
 		Node<T> currNode = mHead;
