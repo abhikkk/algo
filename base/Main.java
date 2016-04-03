@@ -18,14 +18,15 @@ public class Main {
 		File file = new File( "myOutput.txt" );
 	    PrintStream  print = new PrintStream( file );
 
-	    myBinaryTree.add("c");
-	    myBinaryTree.add("c");
-	    myBinaryTree.add("c");
-	    myBinaryTree.add("a");
-	    myBinaryTree.add("b");
+	    myBinaryTree.add("robot");
+	    myBinaryTree.add("robot");
+	    myBinaryTree.add("fortune");
+	    myBinaryTree.add("macbook");
+	    myBinaryTree.add("macbook");
+	    myBinaryTree.add("macbook");
 //	    myBinaryTree.display();
-	    myBinaryTree.removeOne("c");
-	    myBinaryTree.display();
+//	    myBinaryTree.removeOne("c");
+	    myBinaryTree.print(print);
 //	    System.out.println(myBinaryTree.search("c"));
 
 //		myList.add("robot");

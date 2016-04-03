@@ -1,6 +1,5 @@
 package base;
 import java.io.PrintStream;
-import java.util.*;
 
 public class BstMultiset<T> extends Multiset<T>
 { 
@@ -9,6 +8,8 @@ public class BstMultiset<T> extends Multiset<T>
 	/** height of set */
 	protected int height;
 	
+	protected String printString;
+	
 	public BstMultiset() {
 		mHead = null;
 		height = 0;
@@ -16,7 +17,7 @@ public class BstMultiset<T> extends Multiset<T>
 
 	public void add(T value) {
 		
-		BinaryNode<T> newNode = new BinaryNode(value);
+		BinaryNode<T> newNode = new BinaryNode<T>(value);
 		if(mHead == null){
 			mHead = newNode;
 			return;
@@ -166,6 +167,9 @@ public class BstMultiset<T> extends Multiset<T>
 		
 	}
 	
+	/**
+	 * Get the previous/parent node from the tree
+	 */
 	public BinaryNode<T> getPreviousNode(BinaryNode<T> deleleNode){
 		BinaryNode<T> previousNode = null;
 		BinaryNode<T> previousNodeParent = null;
@@ -176,9 +180,7 @@ public class BstMultiset<T> extends Multiset<T>
 			previousNode = current;
 			current = current.getLeftNode();
 		}
-		//check if previousNode has the right child, it cannot have left child for sure
-		// if it does have the right child, add it to the left of previousNodeParent.
-//		successsorParent
+		
 		if(previousNode!=deleleNode.getRightNode()){
 			previousNodeParent.setLeftNode(previousNode.getRightNode());
 			previousNode.setRightNode(deleleNode.getRightNode());
@@ -191,7 +193,6 @@ public class BstMultiset<T> extends Multiset<T>
 		BinaryNode<T> current = mHead;
 		String removeValue = (String) item;
 		String currentValue = (String) current.getValue();
-		int nodeCount;
 		
 		boolean isLeftChild = false;
 		while(!currentValue.equals(removeValue) && current != null){
@@ -218,7 +219,6 @@ public class BstMultiset<T> extends Multiset<T>
 		
 		}
 		// node found...
-		nodeCount = current.getCount();
 		
 		//Case 1: no children
 		if(current.getLeftNode() == null && current.getRightNode() == null){
@@ -236,9 +236,9 @@ public class BstMultiset<T> extends Multiset<T>
 		else if(current.getRightNode() == null){
 			if(current == mHead){
 				mHead = current.getLeftNode();
-			} else if(isLeftChild){
+			} else if(isLeftChild) {
 				parent.setLeftNode(current.getLeftNode());
-			}else{
+			} else {
 				parent.setRightNode(current.getLeftNode());
 			}
 		}
@@ -265,8 +265,21 @@ public class BstMultiset<T> extends Multiset<T>
 		
 	}
 	
+	public void printDisplay(BinaryNode<T> node){
+		if(node != null){
+			printDisplay(node.getLeftNode());
+			int nodeCount = node.getCount();
+			this.printString += node.getValue() + BstMultiset.printDelim + nodeCount + "\n";
+			printDisplay(node.getRightNode());
+		}
+	}
+	
+	
+	
 	public void print(PrintStream out) {
-		
+		this.printString = "";
+		printDisplay(mHead);
+		System.out.println(this.printString);
 	}
 
 
